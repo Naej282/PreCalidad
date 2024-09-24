@@ -52,7 +52,7 @@ public class Cases_231_234_240 {
 		
 		//--------------------------INICIAR GRABACIÓN DE PANTALLA USANDO FFMPEG----------------------//
 		
-	    String outputFile = "C:\\Users\\esalvatierra\\Videos\\EvidenciasCOE\\PreCalidad\\NoCriticosAgencia\\Case_231_234_240\\"+nombreArchivo+"";
+	    String outputFile = ""+Constantes.RUTA_CAPTURES+"\\NoCriticosAgencia\\Case_231_234_240\\"+nombreArchivo+"";
 	    String ffmpegCommand = String.format("ffmpeg -y -f gdigrab -i desktop -framerate 60 "
 	    									+ "-video_size 19820x1080 -vf "+Constantes.ConfigFFMPEG+" "
 	    									+ "-offset_x 0 -offset_y 0 -codec:v libx264 %s", outputFile);
@@ -153,8 +153,10 @@ public class Cases_231_234_240 {
 	    Incluir.click();
 	    WebElement Aceptar = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1047-btnEl")));
 		Aceptar.click();		Thread.sleep(secDelay);Thread.sleep(secDelay);
-		File archivo = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(archivo, new File(captura));		Thread.sleep(secDelay);
+		
+			File archivo = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(archivo, new File(captura));		Thread.sleep(secDelay);
+		
 		WebElement Aceptar1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1005")));
 		Aceptar1.click();		Thread.sleep(secDelay);
 			
@@ -173,12 +175,13 @@ public class Cases_231_234_240 {
 		DesplegarDivisa1.sendKeys(""+Constantes.DIVISA+"");			Thread.sleep(secDelay);			
 		WebElement Consultar = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("buscarFiltro")));
 		Consultar.click();		Thread.sleep(secDelay);Thread.sleep(secDelay);
-		File archivo1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(archivo1, new File(captura1));	Thread.sleep(secDelay);
+		
+			File archivo1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(archivo1, new File(captura1));	Thread.sleep(secDelay);
 			
 		WebElement TablaDiferencia = driver.findElement(By.id("gridview-1020"));
 		String ObtenerTabla = TablaDiferencia.getText().trim();
-		System.out.println(ObtenerTabla);
+			System.out.println(ObtenerTabla);
 		
 		//-----------------------------------------240 IMPRIMIMOS LA DIFERENCIA--------------------------------//
 		

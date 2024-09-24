@@ -52,7 +52,7 @@ public class Cases_228_243_252 {
 		
 		//-------------------------Iniciar grabación de pantalla usando ffmpeg-----------------------//
 		
-        String outputFile = "C:\\Users\\esalvatierra\\Videos\\EvidenciasCOE\\PreCalidad\\NoCriticosAgencia\\Case_228_243_252\\"+nombreArchivo+"";
+        String outputFile = ""+Constantes.RUTA_CAPTURES+"\\NoCriticosAgencia\\Case_228_243_252\\"+nombreArchivo+"";
         String ffmpegCommand = String.format("ffmpeg -y -f gdigrab -i desktop -framerate 60 "
         									+ "-video_size 19820x1080 -vf "+Constantes.ConfigFFMPEG+" "
         									+ "-offset_x 0 -offset_y 0 -codec:v libx264 %s", outputFile);
@@ -85,20 +85,40 @@ public class Cases_228_243_252 {
 	    Diferencias.click();	Thread.sleep(secDelay);
 		WebElement DesplegarTipoConsulta = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tipoConsulta-trigger-picker")));
 	   	DesplegarTipoConsulta.click();										
-		WebElement TipoConsulta = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Pendiente']")));
-		TipoConsulta.click();													
+	   	List<WebElement> options = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options) {
+	      if (option.getText().equals("Pendiente")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);														
 		WebElement DesplegarTipodeDiferencia = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("estado-trigger-picker")));
 		DesplegarTipodeDiferencia.click();										
-		WebElement TipodeDiferencia = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Sobrante']")));
-		TipodeDiferencia.click();												
+		List<WebElement> options1 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options1) {
+	      if (option.getText().equals("Sobrante")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);						
 		WebElement DesplegarDivisas = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("divisa-trigger-picker")));
 		DesplegarDivisas.click();									
-		WebElement Divisas = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='"+Constantes.DIVISA+"']")));
-		Divisas.click();													
+		List<WebElement> options2 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options2) {
+	      if (option.getText().equals(""+Constantes.DIVISA+"")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);	;													
 		WebElement DesplegarOrigen = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("origen-trigger-picker")));
 		DesplegarOrigen.click();									
-		WebElement Origen = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='BOVEDA']")));
-		Origen.click();
+		List<WebElement> options3 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options3) {
+	      if (option.getText().equals("BOVEDA")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);	
 			
 		//--------------------------------CONSULTAMOS SI EXISTE UNA DIFERENCIA.-----------------------//
 		
@@ -122,12 +142,22 @@ public class Cases_228_243_252 {
 			Inventario.click();		Thread.sleep(secDelay);
 			WebElement DesplegarTipoDeBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("boveda-trigger-picker")));
 			DesplegarTipoDeBóveda.click();		Thread.sleep(secDelay);					
-			WebElement TipoDeBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Bóveda Disponible']")));
-			TipoDeBóveda.click();														
+			List<WebElement> option4 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : option4) {
+		      if (option.getText().equals("Bóveda Disponible")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);															
 			WebElement DesplegarDivisa = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("moneda-trigger-picker")));
 			DesplegarDivisa.click();	Thread.sleep(secDelay);			
-			WebElement Divisa = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='"+Constantes.DIVISA+"']")));
-			Divisa.click();														
+			List<WebElement> options5 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options5) {
+		      if (option.getText().equals(""+Constantes.DIVISA+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);														
 			WebElement Consultar1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("buscarFiltro")));
 			Consultar1.click();		Thread.sleep(secDelay);				
 			WebElement AjusteBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ajustarBoveda")));
@@ -137,12 +167,22 @@ public class Cases_228_243_252 {
 			
 			WebElement DesplegarDenominación = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("denominacionSobrantesAjuste-triggerWrap")));
 			DesplegarDenominación.click();		Thread.sleep(secDelay);					
-			WebElement Denominacón = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Billete - 100,000']")));
-			Denominacón.click();												
+			List<WebElement> options6 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options6) {
+		      if (option.getText().equals(""+Constantes.DENOMINACION+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);													
 			WebElement DesplegarClasificaión = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clasificacionSobrantesAjuste-trigger-picker")));
 			DesplegarClasificaión.click();		Thread.sleep(secDelay);				
-			WebElement Clasificaión = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Aptos']")));
-			Clasificaión.click();									
+			List<WebElement> options7 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options7) {
+		      if (option.getText().equals("Aptos")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);										
 			WebElement Cantidad = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("cantidadSobrantesAjuste-inputEl")));
 			Cantidad.sendKeys("5");													
 			WebElement Incluir = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1087")));
@@ -160,20 +200,40 @@ public class Cases_228_243_252 {
 			Diferencias1.click();		Thread.sleep(secDelay);    
 			WebElement DesplegarTipoConsulta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tipoConsulta-trigger-picker")));
 			DesplegarTipoConsulta1.click();		Thread.sleep(secDelay);
-			WebElement TipoConsulta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Pendiente']")));
-			TipoConsulta1.click();													
+			List<WebElement> options8 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options8) {
+		      if (option.getText().equals("Pendiente")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);														
 			WebElement DesplegarTipodeDiferencia1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("estado-trigger-picker")));
 			DesplegarTipodeDiferencia1.click();		Thread.sleep(secDelay);
-			WebElement TipodeDiferencia1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Sobrante']")));
-			TipodeDiferencia1.click();					
+			List<WebElement> options9 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options9) {
+		      if (option.getText().equals("Sobrante")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);					
 			WebElement DesplegarDivisas1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("divisa-trigger-picker")));
 			DesplegarDivisas1.click();	Thread.sleep(secDelay);
-			WebElement Divisas1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='"+Constantes.DIVISA+"']")));
-			Divisas1.click();													
+			List<WebElement> options10 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options10) {
+		      if (option.getText().equals(""+Constantes.DIVISA+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);														
 			WebElement DesplegarOrigen1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("origen-trigger-picker")));
 			DesplegarOrigen1.click();	Thread.sleep(secDelay);
-			WebElement Origen1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='BOVEDA']")));
-			Origen1.click();											
+			List<WebElement> options11 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options11) {
+		      if (option.getText().equals("BOVEDA")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);												
 			WebElement Consultar2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1041")));
 			Consultar2.click();		Thread.sleep(secDelay);
 			}
@@ -186,22 +246,32 @@ public class Cases_228_243_252 {
 		Saldar.click();		Thread.sleep(secDelay);				
 		WebElement DesplegarModalidad = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modalidadRegularizacion-trigger-picker")));
 		DesplegarModalidad.click();		Thread.sleep(secDelay);		
-		WebElement Modalidad = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Entrega de Efectivo']")));
-		Modalidad.click();													
+		List<WebElement> options12 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options12) {
+	      if (option.getText().equals("Entrega de Efectivo")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);														
 		WebElement MontoSaldar = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("montoSaldarRegularizacion-inputEl")));
 		MontoSaldar.sendKeys("500");					
 		WebElement Descripción = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("descripcionRegularizacion-inputEl")));
 		Descripción.sendKeys("Pago");					
 		WebElement DesplegarDenominacón = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("denominacionEfec-trigger-picker")));
 		DesplegarDenominacón.click();					
-		WebElement Denominación = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Billete - 100,000']")));
-		Denominación.click();
+		List<WebElement> options13 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options13) {
+	      if (option.getText().equals(""+Constantes.DENOMINACION+"")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);	
 		WebElement Cantidad = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("cantidadEfec-inputEl")));
 		Cantidad.sendKeys("5");
 		WebElement DesplegarClasificación = driver.findElement(By.id("clasificacionEfec-trigger-picker"));
 	    DesplegarClasificación.click();		Thread.sleep(secDelay);
-	    List<WebElement> options1 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
-	    for (WebElement option : options1) {
+	    List<WebElement> options14 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options14) {
 	      if (option.getText().equals("Aptos")) {
 	          option.click();
 	          break;	            
@@ -235,12 +305,22 @@ public class Cases_228_243_252 {
 			Inventario.click();		Thread.sleep(secDelay);
 			WebElement DesplegarTipoDeBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("boveda-trigger-picker")));
 			DesplegarTipoDeBóveda.click();		Thread.sleep(secDelay);					
-			WebElement TipoDeBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Bóveda Disponible']")));
-			TipoDeBóveda.click();														
+			List<WebElement> options15 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options15) {
+		      if (option.getText().equals("Bóveda Disponible")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);															
 			WebElement DesplegarDivisa = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("moneda-trigger-picker")));
 			DesplegarDivisa.click();	Thread.sleep(secDelay);			
-			WebElement Divisa = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='"+Constantes.DIVISA+"']")));
-			Divisa.click();														
+			List<WebElement> options16 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options16) {
+		      if (option.getText().equals(""+Constantes.DIVISA+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);														
 			WebElement Consultar1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("buscarFiltro")));
 			Consultar1.click();		Thread.sleep(secDelay);				
 			WebElement AjusteBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ajustarBoveda")));
@@ -250,12 +330,22 @@ public class Cases_228_243_252 {
 			
 			WebElement DesplegarDenominación = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("denominacionSobrantesAjuste-triggerWrap")));
 			DesplegarDenominación.click();		Thread.sleep(secDelay);					
-			WebElement Denominacón = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Billete - 100,000']")));
-			Denominacón.click();												
+			List<WebElement> options17 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options17) {
+		      if (option.getText().equals(""+Constantes.DENOMINACION+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);													
 			WebElement DesplegarClasificaión = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clasificacionSobrantesAjuste-trigger-picker")));
 			DesplegarClasificaión.click();		Thread.sleep(secDelay);				
-			WebElement Clasificaión = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Aptos']")));
-			Clasificaión.click();									
+			List<WebElement> options18 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options18) {
+		      if (option.getText().equals("Aptos")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);										
 			WebElement Cantidad1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("cantidadSobrantesAjuste-inputEl")));
 			Cantidad1.sendKeys("5");	Thread.sleep(secDelay);				
 			WebElement Incluir1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1087")));
@@ -273,20 +363,40 @@ public class Cases_228_243_252 {
 			Diferencias1.click();	Thread.sleep(secDelay);    
 			WebElement DesplegarTipoConsulta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tipoConsulta-trigger-picker")));
 			DesplegarTipoConsulta1.click();		Thread.sleep(secDelay);
-			WebElement TipoConsulta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Pendiente']")));
-			TipoConsulta1.click();													
+			List<WebElement> options19 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options19) {
+		      if (option.getText().equals("Pendiente")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);														
 			WebElement DesplegarTipodeDiferencia1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("estado-trigger-picker")));
 			DesplegarTipodeDiferencia1.click();		Thread.sleep(secDelay);
-			WebElement TipodeDiferencia1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Sobrante']")));
-			TipodeDiferencia1.click();							
+			List<WebElement> options20 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options20) {
+		      if (option.getText().equals("Sobrante")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);								
 			WebElement DesplegarDivisas1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("divisa-trigger-picker")));
 			DesplegarDivisas1.click();	Thread.sleep(secDelay);
-			WebElement Divisas1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='"+Constantes.DIVISA+"']")));
-			Divisas1.click();													
+			List<WebElement> options21 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options21) {
+		      if (option.getText().equals(""+Constantes.DIVISA+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);														
 			WebElement DesplegarOrigen1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("origen-trigger-picker")));
 			DesplegarOrigen1.click();	Thread.sleep(secDelay);
-			WebElement Origen1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='BOVEDA']")));
-			Origen1.click();											
+			List<WebElement> options22 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options22) {
+		      if (option.getText().equals("BOVEDA")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);												
 			WebElement Consultar2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1041")));
 			Consultar2.click();		Thread.sleep(secDelay);
 			}
@@ -299,16 +409,26 @@ public class Cases_228_243_252 {
 		Saldar2.click();		Thread.sleep(secDelay);
 		WebElement DesplegarModalidad2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modalidadRegularizacion-trigger-picker")));
 		DesplegarModalidad2.click();	Thread.sleep(secDelay);
-		WebElement Modalidad2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Cheque mismo Banco']")));
-		Modalidad2.click();													
+		List<WebElement> options23 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options23) {
+	      if (option.getText().equals("Cheque mismo Banco")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);														
 		WebElement MontoSaldar2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("montoSaldarRegularizacion-inputEl")));
 		MontoSaldar2.sendKeys("500");						
 		WebElement Descripción2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("descripcionRegularizacion-inputEl")));
 		Descripción2.sendKeys("Pago");				
 		WebElement DesplegarBanco = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("banco-trigger-picker")));
-		DesplegarBanco.click();			
-		WebElement Banco = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='122 - Banco Ka']")));
-		Banco.click();				
+		DesplegarBanco.click();			Thread.sleep(secDelay);	
+		List<WebElement> options24 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options24) {
+	      if (option.getText().equals("3007 - BANCO PA 3")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);				
 		WebElement NroDeCuenta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nCuenta-inputEl")));
 		NroDeCuenta1.sendKeys("210802");			
 		WebElement NombreDeLaCuenta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nombreCuenta-inputEl")));
@@ -343,12 +463,22 @@ public class Cases_228_243_252 {
 			Inventario.click();		Thread.sleep(secDelay);
 			WebElement DesplegarTipoDeBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("boveda-trigger-picker")));
 			DesplegarTipoDeBóveda.click();		Thread.sleep(secDelay);					
-			WebElement TipoDeBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Bóveda Disponible']")));
-			TipoDeBóveda.click();														
+			List<WebElement> options25 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options25) {
+		      if (option.getText().equals("Bóveda Disponible")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);;														
 			WebElement DesplegarDivisa = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("moneda-trigger-picker")));
 			DesplegarDivisa.click();	Thread.sleep(secDelay);			
-			WebElement Divisa = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='"+Constantes.DIVISA+"']")));
-			Divisa.click();														
+			List<WebElement> options26 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options26) {
+		      if (option.getText().equals(""+Constantes.DIVISA+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);													
 			WebElement Consultar1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("buscarFiltro")));
 			Consultar1.click();		Thread.sleep(secDelay);				
 			WebElement AjusteBóveda = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ajustarBoveda")));
@@ -358,12 +488,22 @@ public class Cases_228_243_252 {
 			
 			WebElement DesplegarDenominación = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("denominacionSobrantesAjuste-triggerWrap")));
 			DesplegarDenominación.click();		Thread.sleep(secDelay);					
-			WebElement Denominacón = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Billete - 100,000']")));
-			Denominacón.click();												
+			List<WebElement> options27 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options27) {
+		      if (option.getText().equals(""+Constantes.DENOMINACION+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);												
 			WebElement DesplegarClasificaión = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clasificacionSobrantesAjuste-trigger-picker")));
 			DesplegarClasificaión.click();		Thread.sleep(secDelay);				
-			WebElement Clasificaión = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Aptos']")));
-			Clasificaión.click();									
+			List<WebElement> options28 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options28) {
+		      if (option.getText().equals("Aptos")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);									
 			WebElement Cantidad1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("cantidadSobrantesAjuste-inputEl")));
 			Cantidad1.sendKeys("5");	Thread.sleep(secDelay);				
 			WebElement Incluir1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1087")));
@@ -381,20 +521,40 @@ public class Cases_228_243_252 {
 			Diferencias1.click();	Thread.sleep(secDelay);    
 			WebElement DesplegarTipoConsulta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tipoConsulta-trigger-picker")));
 			DesplegarTipoConsulta1.click();		Thread.sleep(secDelay);
-			WebElement TipoConsulta1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Pendiente']")));
-			TipoConsulta1.click();													
+			List<WebElement> options29 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options29) {
+		      if (option.getText().equals("Pendiente")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);													
 			WebElement DesplegarTipodeDiferencia1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("estado-trigger-picker")));
 			DesplegarTipodeDiferencia1.click();		Thread.sleep(secDelay);
-			WebElement TipodeDiferencia1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Sobrante']")));
-			TipodeDiferencia1.click();							
+			List<WebElement> options30 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options30) {
+		      if (option.getText().equals("Sobrante")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);							
 			WebElement DesplegarDivisas1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("divisa-trigger-picker")));
 			DesplegarDivisas1.click();		Thread.sleep(secDelay);
-			WebElement Divisas1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='"+Constantes.DIVISA+"']")));
-			Divisas1.click();													
+			List<WebElement> options31 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options31) {
+		      if (option.getText().equals(""+Constantes.DIVISA+"")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);													
 			WebElement DesplegarOrigen1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("origen-trigger-picker")));
 			DesplegarOrigen1.click();		Thread.sleep(secDelay);
-			WebElement Origen1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='BOVEDA']")));
-			Origen1.click();											
+			List<WebElement> options32 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+		    for (WebElement option : options32) {
+		      if (option.getText().equals("BOVEDA")) {
+		          option.click();
+		          break;	            
+		          }
+		    }		Thread.sleep(secDelay);											
 			WebElement Consultar2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1041")));
 			Consultar2.click();		Thread.sleep(secDelay);
 			}
@@ -407,18 +567,23 @@ public class Cases_228_243_252 {
 		Saldar1.click();	Thread.sleep(secDelay);				
 		WebElement DesplegarModalidad1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modalidadRegularizacion-trigger-picker")));
 		DesplegarModalidad1.click();		Thread.sleep(secDelay);		
-		WebElement Modalidad1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Contra Ingreso']")));
-		Modalidad1.click();													
+		List<WebElement> options33 = driver.findElements(By.xpath("//ul[@class='x-list-plain']/li"));
+	    for (WebElement option : options33) {
+	      if (option.getText().equals("Contra Ingreso")) {
+	          option.click();
+	          break;	            
+	          }
+	    }		Thread.sleep(secDelay);													
 		WebElement MontoSaldar1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("montoSaldarRegularizacion-inputEl")));
-		MontoSaldar1.sendKeys("500");					
+		MontoSaldar1.sendKeys("500");		Thread.sleep(secDelay);			
 		WebElement Descripción1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("descripcionRegularizacion-inputEl")));
-		Descripción1.sendKeys("Pago");					
+		Descripción1.sendKeys("Pago");		Thread.sleep(secDelay);			
 		WebElement NrodeCuenta = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nCuentaCuen-inputEl")));
-		NrodeCuenta.sendKeys("210802");					
+		NrodeCuenta.sendKeys("210802");		Thread.sleep(secDelay);			
 		WebElement NombreDeLaCuenta = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nombreCuentaCuen-inputEl")));
-		NombreDeLaCuenta.sendKeys("Orion-5");	
+		NombreDeLaCuenta.sendKeys("Orion-5");		Thread.sleep(secDelay);
 		WebElement Incluir1 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("incluirRegularizacionCuen")));
-		Incluir1.click();	Thread.sleep(secDelay);
+		Incluir1.click();	Thread.sleep(secDelay);	Thread.sleep(secDelay);
 		WebElement Aceptar2 = ewait.until(ExpectedConditions.visibilityOfElementLocated(By.id("aceptarSald")));
 		Aceptar2.click();		Thread.sleep(secDelay);Thread.sleep(secDelay);
 		
