@@ -1,0 +1,65 @@
+package criticos_agencia;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+@RunWith(Suite.class)    
+@Suite.SuiteClasses({
+    Cases_137.class,
+    Cases_138.class,
+    Cases_139.class,
+    Cases_141.class,
+    Cases_142_143_145.class,
+    Cases_146.class,
+    Cases_148.class,
+    Cases_149.class,
+    Cases_150_151.class,
+    Cases_152.class,
+    Cases_153.class,
+    Cases_185.class,
+    Cases_186.class,
+    Cases_188.class,
+    Cases_190.class,
+    Cases_191.class,
+    Cases_194.class,
+    Cases_198.class,
+    Cases_200.class,
+    Cases_203.class,
+    Cases_207.class,
+    Cases_214.class,
+    Cases_217.class,
+    Cases_219.class,
+    Cases_223.class,
+    Cases_229.class,
+    Cases_230_235.class,
+    Cases_236.class,
+    Cases_239.class,
+    Cases_241.class,
+    Cases_257.class,
+    Cases_258.class,
+    Cases_261.class,
+    Cases_273.class,
+    Cases_277.class,
+    Cases_282.class,
+	Cases_285.class,
+    Cases_285.class,
+    Cases_300.class,
+    Cases_314.class,
+    Cases_318.class,
+    Cases_320.class,
+    Cases_326.class,
+    Cases_331.class,
+    Cases_336.class,
+    Cases_337.class,
+    Cases_339.class,
+    Cases_342.class,
+    Cases_343.class,
+    Cases_345.class,
+    Cases_348.class,
+    Cases_350.class,
+    Cases_358.class,
+    
+})
+public class Control {
+      
+}
